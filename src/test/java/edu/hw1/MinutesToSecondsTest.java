@@ -31,10 +31,40 @@ public class MinutesToSecondsTest {
     @Test
     @DisplayName("Преобразование времени с большим количеством минут")
     void largeMinutesConversion() {
-        String time = "999:59";
+        String time = "35791394:07";
 
         int seconds = Task1.minutesToSeconds(time);
 
-        assertThat(seconds).isEqualTo(59999);
+        assertThat(seconds).isEqualTo(2147483647);
+    }
+
+    @Test
+    @DisplayName("Преобразование времени с слишком большим количеством минут")
+    void invalidLargeMinutesConversion() {
+        String time = "35791395:07";
+
+        int seconds = Task1.minutesToSeconds(time);
+
+        assertThat(seconds).isEqualTo(-1);
+    }
+
+    @Test
+    @DisplayName("Преобразование нуля")
+    void zeroConversion() {
+        String time = "00:00";
+
+        int seconds = Task1.minutesToSeconds(time);
+
+        assertThat(seconds).isEqualTo(0);
+    }
+
+    @Test
+    @DisplayName("Преобразование отрицательного времени")
+    void negativeConversion() {
+        String time = "-1:-1";
+
+        int seconds = Task1.minutesToSeconds(time);
+
+        assertThat(seconds).isEqualTo(-1);
     }
 }

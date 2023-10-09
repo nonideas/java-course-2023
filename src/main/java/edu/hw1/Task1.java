@@ -18,6 +18,9 @@ public final class Task1 {
         if (seconds < 0 || seconds >= 60 || minutes < 0) {
             return -1;
         }
+        if (minutes > 35791394 || minutes == 35791394 && seconds > 7) {
+            return -1;
+        }
         return minutes * 60 + seconds;
     }
 
@@ -26,5 +29,6 @@ public final class Task1 {
         LOGGER.info(minutesToSeconds("13:56"));
         LOGGER.info(minutesToSeconds("10:60"));
         LOGGER.info(minutesToSeconds("999:59"));
+        LOGGER.info(minutesToSeconds("35791394:07"));
     }
 }
