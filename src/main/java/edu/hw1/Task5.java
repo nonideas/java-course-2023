@@ -9,8 +9,8 @@ public final class Task5 {
     private Task5() {
     }
 
+    @SuppressWarnings("MagicNumber")
     public static boolean isPalindromeDescendant(int number) {
-        // checkstyle:off MagicNumber
         if (number < 10) {
             return false;
         } else if (isPalindrome(number)) {
@@ -19,9 +19,9 @@ public final class Task5 {
             int descendant = findDescendant(number);
             return isPalindromeDescendant(descendant);
         }
-        // checkstyle:on MagicNumber
     }
 
+    @SuppressWarnings("MagicNumber")
     private static boolean isPalindrome(int number) {
         String str = String.valueOf(number);
         int left = 0;
@@ -38,6 +38,7 @@ public final class Task5 {
         return true;
     }
 
+    @SuppressWarnings("MagicNumber")
     private static int findDescendant(int number) {
         String str = String.valueOf(number);
         if (str.length() % 2 != 0) {
@@ -54,12 +55,11 @@ public final class Task5 {
         return descendant;
     }
 
+    @SuppressWarnings("MagicNumber")
     public static void main(String[] args) {
-        // checkstyle:off MagicNumber
         LOGGER.info(isPalindromeDescendant(11211230));
         LOGGER.info(isPalindromeDescendant(13001120));
         LOGGER.info(isPalindromeDescendant(23336014));
         LOGGER.info(isPalindromeDescendant(11));
-        // checkstyle:on MagicNumber
     }
 }

@@ -9,6 +9,7 @@ public final class Task2 {
     private Task2() {
     }
 
+    @SuppressWarnings("MagicNumber")
     public static int countDigits(int number) {
         if (number == 0) {
             return 1;
@@ -29,6 +30,7 @@ public final class Task2 {
         return count;
     }
 
+    @SuppressWarnings("MagicNumber")
     public static void main(String[] args) {
         LOGGER.info(countDigits(4666));
         LOGGER.info(countDigits(544));

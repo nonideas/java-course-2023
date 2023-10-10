@@ -10,6 +10,7 @@ public final class Task4 {
     private Task4() {
     }
 
+    @SuppressWarnings("MagicNumber")
     public static String fixString(@NotNull String str) {
         char[] charArray = str.toCharArray();
         for (int i = 0; i < charArray.length - 1; i += 2) {
