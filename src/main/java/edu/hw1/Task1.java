@@ -10,7 +10,7 @@ public final class Task1 {
     private Task1() {
     }
 
-    @SuppressWarnings("MagicNumber")
+    @SuppressWarnings({"MagicNumber", "checkstyle:UncommentedMain"})
     public static int minutesToSeconds(@NotNull String time) {
         String[] minSec = time.split(":");
         int minutes = Integer.parseInt(minSec[0]);

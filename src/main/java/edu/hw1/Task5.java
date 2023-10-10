@@ -55,7 +55,7 @@ public final class Task5 {
         return descendant;
     }
 
-    @SuppressWarnings("MagicNumber")
+    @SuppressWarnings({"MagicNumber", "checkstyle:UncommentedMain"})
     public static void main(String[] args) {
         LOGGER.info(isPalindromeDescendant(11211230));
         LOGGER.info(isPalindromeDescendant(13001120));

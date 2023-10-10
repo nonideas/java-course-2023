@@ -30,7 +30,7 @@ public final class Task2 {
         return count;
     }
 
-    @SuppressWarnings("MagicNumber")
+    @SuppressWarnings({"MagicNumber", "checkstyle:UncommentedMain"})
     public static void main(String[] args) {
         LOGGER.info(countDigits(4666));
         LOGGER.info(countDigits(544));

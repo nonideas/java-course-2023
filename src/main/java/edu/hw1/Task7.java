@@ -27,7 +27,7 @@ public final class Task7 {
         return partLeft | partRight;
     }
 
-    @SuppressWarnings("MagicNumber")
+    @SuppressWarnings({"MagicNumber", "checkstyle:UncommentedMain"})
     public static void main(String[] args) {
         LOGGER.info(rotateRight(8, 1));
         LOGGER.info(rotateLeft(16, 1));

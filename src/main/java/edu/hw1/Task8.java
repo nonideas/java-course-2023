@@ -33,7 +33,7 @@ public final class Task8 {
         return true;
     }
 
-    @SuppressWarnings("MagicNumber")
+    @SuppressWarnings({"MagicNumber", "checkstyle:UncommentedMain"})
     public static void main(String[] args) {
         int[][] board1 = {
             {0, 0, 0, 1, 0, 0, 0, 0},
