@@ -9,7 +9,7 @@ public final class Task3 {
     private Task3() {
     }
 
-    @SuppressWarnings({"MagicNumber", "checkstyle:UncommentedMain"})
+    @SuppressWarnings("MagicNumber")
     public static boolean isNestable(int[] array1, int[] array2) {
         if (array1 == null || array2 == null) {
             return false;
@@ -46,7 +46,7 @@ public final class Task3 {
         return max;
     }
 
-    @SuppressWarnings("MagicNumber")
+    @SuppressWarnings({"MagicNumber", "checkstyle:UncommentedMain"})
     public static void main(String[] args) {
         LOGGER.info(isNestable(new int[] {1, 2, 3, 4}, new int[] {0, 6}));
         LOGGER.info(isNestable(new int[] {3, 1}, new int[] {4, 0}));

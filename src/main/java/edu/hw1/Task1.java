@@ -10,7 +10,7 @@ public final class Task1 {
     private Task1() {
     }
 
-    @SuppressWarnings({"MagicNumber", "checkstyle:UncommentedMain"})
+    @SuppressWarnings("MagicNumber")
     public static int minutesToSeconds(@NotNull String time) {
         String[] minSec = time.split(":");
         int minutes = Integer.parseInt(minSec[0]);
@@ -25,6 +25,7 @@ public final class Task1 {
         return minutes * 60 + seconds;
     }
 
+    @SuppressWarnings({"MagicNumber", "checkstyle:UncommentedMain"})
     public static void main(String[] args) {
         LOGGER.info(minutesToSeconds("01:00"));
         LOGGER.info(minutesToSeconds("13:56"));
