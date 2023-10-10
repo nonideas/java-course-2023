@@ -11,6 +11,7 @@ public final class Task6 {
     }
 
     public static int countK(int number) {
+        // checkstyle:off MagicNumber
         if (number < 1000 || number > 9999) {
             throw new IllegalArgumentException("Введено некорректное четырехзначное число.");
         }
@@ -29,12 +30,15 @@ public final class Task6 {
         int difference = descendingNumber - ascendingNumber;
 
         return 1 + countK(difference);
+        // checkstyle:on MagicNumber
     }
 
     public static void main(String[] args) {
+        // checkstyle:off MagicNumber
         LOGGER.info(countK(3524));
         LOGGER.info(countK(6621));
         LOGGER.info(countK(6554));
         LOGGER.info(countK(1234));
+        // checkstyle:on MagicNumber
     }
 }

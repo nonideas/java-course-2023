@@ -9,6 +9,7 @@ public final class Task8 {
     private Task8() {
     }
 
+    // checkstyle:off MagicNumber
     public static boolean knightBoardCapture(int[][] board) {
         int[][] moves = {{-2, -1}, {-2, 1}, {-1, -2}, {-1, 2}, {1, -2}, {1, 2}, {2, -1}, {2, 1}};
         int size = board.length;
@@ -31,6 +32,7 @@ public final class Task8 {
 
         return true;
     }
+    // checkstyle:on MagicNumber
 
     public static void main(String[] args) {
         int[][] board1 = {

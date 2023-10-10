@@ -11,6 +11,7 @@ public final class Task1 {
     }
 
     public static int minutesToSeconds(@NotNull String time) {
+        // checkstyle:off MagicNumber
         String[] minSec = time.split(":");
         int minutes = Integer.parseInt(minSec[0]);
         int seconds = Integer.parseInt(minSec[1]);
@@ -22,6 +23,7 @@ public final class Task1 {
             return -1;
         }
         return minutes * 60 + seconds;
+        // checkstyle:on MagicNumber
     }
 
     public static void main(String[] args) {
