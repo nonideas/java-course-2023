@@ -11,17 +11,17 @@ public final class Task7 {
 
     public static int rotateLeft(int n, int shift) {
         int largerPower = (int) Math.floor(Math.log(n) / Math.log(2)) + 1;
-        shift = shift % largerPower;
-        int partLeft = (n << shift) & ((int) Math.pow(2, largerPower) - 1);
-        int partRight = (n >>> (largerPower - shift)) & ((int) Math.pow(2, largerPower) - 1);
+        int shiftValue = shift % largerPower;
+        int partLeft = (n << shiftValue) & ((int) Math.pow(2, largerPower) - 1);
+        int partRight = (n >>> (largerPower - shiftValue)) & ((int) Math.pow(2, largerPower) - 1);
         return partLeft | partRight;
     }
 
     public static int rotateRight(int n, int shift) {
         int largerPower = (int) Math.floor(Math.log(n) / Math.log(2)) + 1;
-        shift = shift % largerPower;
-        int partLeft = (n >>> shift) & ((int) Math.pow(2, largerPower) - 1);
-        int partRight = (n << (largerPower - shift)) & ((int) Math.pow(2, largerPower) - 1);
+        int shiftValue = shift % largerPower;
+        int partLeft = (n >>> shiftValue) & ((int) Math.pow(2, largerPower) - 1);
+        int partRight = (n << (largerPower - shiftValue)) & ((int) Math.pow(2, largerPower) - 1);
         return partLeft | partRight;
     }
 
