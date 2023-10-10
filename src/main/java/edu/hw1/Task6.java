@@ -1,10 +1,10 @@
 package edu.hw1;
 
+import java.util.Arrays;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import java.util.Arrays;
 
-public class Task6 {
+public final class Task6 {
     private final static Logger LOGGER = LogManager.getLogger();
 
     private Task6() {
