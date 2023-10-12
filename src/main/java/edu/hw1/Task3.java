@@ -9,7 +9,6 @@ public final class Task3 {
     private Task3() {
     }
 
-    @SuppressWarnings("MagicNumber")
     public static boolean isNestable(int[] array1, int[] array2) {
         if (array1 == null || array2 == null) {
             return false;

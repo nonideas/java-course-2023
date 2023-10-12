@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CountDigitsTest {
+public class Task2Test {
     @Test
     @DisplayName("Тестирование для положительного числа")
     void testCountDigitsWithPositiveNumber() {

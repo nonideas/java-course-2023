@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class KnightBoardCaptureTest {
+public class Task8Test {
     @Test
     @DisplayName("Ни один конь не может захватить другого коня")
     void testKnightBoardCapture1() {

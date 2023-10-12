@@ -11,13 +11,11 @@ public final class Task5 {
 
     @SuppressWarnings("MagicNumber")
     public static boolean isPalindromeDescendant(int number) {
-        if (number < 10) {
-            return false;
-        } else if (isPalindrome(number)) {
+        if (isPalindrome(number)) {
             return true;
         } else {
             int descendant = findDescendant(number);
-            return isPalindromeDescendant(descendant);
+            return (descendant >= 10) && isPalindromeDescendant(descendant);
         }
     }
 
@@ -58,8 +56,8 @@ public final class Task5 {
     @SuppressWarnings({"MagicNumber", "checkstyle:UncommentedMain"})
     public static void main(String[] args) {
         LOGGER.info(isPalindromeDescendant(11211230));
-        LOGGER.info(isPalindromeDescendant(13001120));
+        LOGGER.info(isPalindromeDescendant(13001121));
         LOGGER.info(isPalindromeDescendant(23336014));
-        LOGGER.info(isPalindromeDescendant(11));
+        LOGGER.info(isPalindromeDescendant(1));
     }
 }

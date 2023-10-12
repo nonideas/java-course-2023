@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class PalindromeDescendantTest {
+public class Task5Test {
     @Test
     @DisplayName("Тестирование для числа с четным количеством цифр и палиндромного потомка")
     void testEvenLengthNumberWithPalindromeDescendant() {

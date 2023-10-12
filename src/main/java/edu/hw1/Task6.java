@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public final class Task6 {
+    private final static int KAPREKAR_CONSTANT = 6174;
     private final static Logger LOGGER = LogManager.getLogger();
 
     private Task6() {
@@ -15,7 +16,7 @@ public final class Task6 {
         if (number < 1000 || number > 9999) {
             throw new IllegalArgumentException("Введено некорректное четырехзначное число.");
         }
-        if (number == 6174) {
+        if (number == KAPREKAR_CONSTANT) {
             return 0;
         }
 

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MinutesToSecondsTest {
+public class Task1Test {
     @Test
     @DisplayName("Преобразование корректного времени")
     void validTimeConversion() {
@@ -31,11 +31,11 @@ public class MinutesToSecondsTest {
     @Test
     @DisplayName("Преобразование времени с большим количеством минут")
     void largeMinutesConversion() {
-        String time = "35791394:07";
+        String time = "35791393:07";
 
         int seconds = Task1.minutesToSeconds(time);
 
-        assertThat(seconds).isEqualTo(2147483647);
+        assertThat(seconds).isEqualTo(2147483587);
     }
 
     @Test
@@ -62,6 +62,26 @@ public class MinutesToSecondsTest {
     @DisplayName("Преобразование отрицательного времени")
     void negativeConversion() {
         String time = "-1:-1";
+
+        int seconds = Task1.minutesToSeconds(time);
+
+        assertThat(seconds).isEqualTo(-1);
+    }
+
+    @Test
+    @DisplayName("Преобразование буквенного времени")
+    void characterConversion() {
+        String time = "ad2313:34";
+
+        int seconds = Task1.minutesToSeconds(time);
+
+        assertThat(seconds).isEqualTo(-1);
+    }
+
+    @Test
+    @DisplayName("Преобразование пустой строки")
+    void nullConversion() {
+        String time = null;
 
         int seconds = Task1.minutesToSeconds(time);
 

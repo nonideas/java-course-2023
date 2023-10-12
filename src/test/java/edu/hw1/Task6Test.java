@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class CountKTest {
+public class Task6Test {
     @Test
     @DisplayName("Тестирование для четырехзначного нормального числа")
     void testCountKFourDigitNumber() {
