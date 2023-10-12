@@ -27,7 +27,7 @@ public class Task5Test {
     @Test
     @DisplayName("Тестирование для числа с одной цифрой")
     void testSingleDigitNumber() {
-        assertFalse(Task5.isPalindromeDescendant(1));
+        assertTrue(Task5.isPalindromeDescendant(1));
     }
 
     @Test
