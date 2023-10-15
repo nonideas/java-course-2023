@@ -32,12 +32,4 @@ public final class Task6 {
 
         return 1 + countK(difference);
     }
-
-    @SuppressWarnings({"MagicNumber", "checkstyle:UncommentedMain"})
-    public static void main(String[] args) {
-        LOGGER.info(countK(3524));
-        LOGGER.info(countK(6621));
-        LOGGER.info(countK(6554));
-        LOGGER.info(countK(1234));
-    }
 }

@@ -44,12 +44,4 @@ public final class Task3 {
         }
         return max;
     }
-
-    @SuppressWarnings({"MagicNumber", "checkstyle:UncommentedMain"})
-    public static void main(String[] args) {
-        LOGGER.info(isNestable(new int[] {1, 2, 3, 4}, new int[] {0, 6}));
-        LOGGER.info(isNestable(new int[] {3, 1}, new int[] {4, 0}));
-        LOGGER.info(isNestable(new int[] {9, 9, 8}, new int[] {8, 9}));
-        LOGGER.info(isNestable(new int[] {1, 2, 3, 4}, new int[] {2, 3}));
-    }
 }

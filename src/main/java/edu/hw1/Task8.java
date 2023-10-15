@@ -10,7 +10,6 @@ public final class Task8 {
     private Task8() {
     }
 
-    @SuppressWarnings("MagicNumber")
     public static boolean knightBoardCapture(int[][] board) {
         int size = board.length;
 
@@ -31,44 +30,5 @@ public final class Task8 {
         }
 
         return true;
-    }
-
-    @SuppressWarnings({"MagicNumber", "checkstyle:UncommentedMain"})
-    public static void main(String[] args) {
-        int[][] board1 = {
-            {0, 0, 0, 1, 0, 0, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 1, 0, 0, 0, 1, 0, 0},
-            {0, 0, 0, 0, 1, 0, 1, 0},
-            {0, 1, 0, 0, 0, 1, 0, 0},
-            {0, 0, 0, 0, 0, 0, 0, 0},
-            {0, 1, 0, 0, 0, 0, 0, 1},
-            {0, 0, 0, 0, 1, 0, 0, 0}
-        };
-        LOGGER.info(knightBoardCapture(board1));
-
-        int[][] board2 = {
-            {1, 0, 1, 0, 1, 0, 1, 0},
-            {0, 1, 0, 1, 0, 1, 0, 1},
-            {0, 0, 0, 0, 1, 0, 1, 0},
-            {0, 0, 1, 0, 0, 1, 0, 1},
-            {1, 0, 0, 0, 1, 0, 1, 0},
-            {0, 0, 0, 0, 0, 1, 0, 1},
-            {1, 0, 0, 0, 1, 0, 1, 0},
-            {0, 0, 0, 1, 0, 1, 0, 1}
-        };
-        LOGGER.info(knightBoardCapture(board2));
-
-        int[][] board3 = {
-            {0, 0, 0, 0, 1, 0, 0, 0},
-            {0, 0, 0, 0, 0, 1, 0, 0},
-            {0, 0, 0, 1, 0, 0, 0, 0},
-            {1, 0, 0, 0, 0, 0, 0, 0},
-            {0, 0, 0, 0, 1, 0, 0, 0},
-            {0, 0, 0, 0, 0, 1, 0, 0},
-            {0, 0, 0, 0, 0, 1, 0, 0},
-            {1, 0, 0, 0, 0, 0, 0, 0}
-        };
-        LOGGER.info(knightBoardCapture(board3));
     }
 }

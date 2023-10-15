@@ -10,7 +10,6 @@ public final class Task4 {
     private Task4() {
     }
 
-    @SuppressWarnings("MagicNumber")
     public static String fixString(@NotNull String str) {
         char[] charArray = str.toCharArray();
         for (int i = 0; i < charArray.length - 1; i += 2) {
@@ -19,11 +18,5 @@ public final class Task4 {
             charArray[i + 1] = temp;
         }
         return new String(charArray);
-    }
-
-    @SuppressWarnings({"MagicNumber", "checkstyle:UncommentedMain"})
-    public static void main(String[] args) {
-        LOGGER.info(fixString("hTsii  s aimex dpus rtni.g"));
-        LOGGER.info(fixString("badce"));
     }
 }
