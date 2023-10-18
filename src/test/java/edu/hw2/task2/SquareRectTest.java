@@ -40,6 +40,7 @@ public class SquareRectTest {
     }
 
     @Test
+    @DisplayName("Передаю невалидную ширину")
     void testInvalidWidth() {
         IllegalArgumentException exception = org.junit.jupiter.api.Assertions.assertThrows(
             IllegalArgumentException.class,
@@ -49,6 +50,7 @@ public class SquareRectTest {
     }
 
     @Test
+    @DisplayName("Передаю невалидную высоту")
     void testInvalidHeight() {
         IllegalArgumentException exception = org.junit.jupiter.api.Assertions.assertThrows(
             IllegalArgumentException.class,
