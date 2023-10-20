@@ -1,8 +1,11 @@
 package edu.project1;
 
 import java.util.Scanner;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 class ConsoleHangman {
+    private final static Logger LOGGER = LogManager.getLogger();
     private final Dictionary dictionary;
 
     ConsoleHangman(Dictionary dictionary) {
@@ -15,23 +18,23 @@ class ConsoleHangman {
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
-            System.out.println("Guess a letter:");
+            LOGGER.info("Guess a letter:");
             String guess = scanner.nextLine().toLowerCase();
 
             GuessResult result = tryGuess(session, guess);
 
             if (result == null) {
-                System.out.println("Write one letter!!!");
+                LOGGER.info("Write one letter!!!");
                 continue;
             }
 
             printState(result);
 
             if (result instanceof GuessResult.Defeat) {
-                System.out.println("You lost!");
+                LOGGER.info("You lost!");
                 break;
             } else if (result instanceof GuessResult.Win) {
-                System.out.println("You won!");
+                LOGGER.info("You won!");
                 break;
             }
         }
@@ -49,8 +52,8 @@ class ConsoleHangman {
     }
 
     private void printState(GuessResult guessResult) {
-        System.out.println(guessResult.message());
-        System.out.println("The word: " + new String(guessResult.state()));
+        LOGGER.info(guessResult.message());
+        LOGGER.info("The word: " + new String(guessResult.state()));
     }
 }
 
