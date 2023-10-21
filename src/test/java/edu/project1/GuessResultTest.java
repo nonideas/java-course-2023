@@ -20,6 +20,34 @@ class GuessResultTest {
     }
 
     @Test
+    @DisplayName("Победный статус")
+    void winGameOverMessage() {
+        GuessResult win = new GuessResult.Win(new char[] {'h', 'i'});
+        assertEquals("You won!", win.gameOver());
+    }
+
+    @Test
+    @DisplayName("Проигрышный статус")
+    void defeatGameOverMessage() {
+        GuessResult defeat = new GuessResult.Defeat(new char[] {'*', '*', '*', '*'}, 4);
+        assertEquals("You lost!", defeat.gameOver());
+    }
+
+    @Test
+    @DisplayName("Попадание, игра не завершилась")
+    void successfulGuessGameOver() {
+        GuessResult successfulGuess = new GuessResult.SuccessfulGuess(new char[] {'h', 'i'});
+        assertNull(successfulGuess.gameOver());
+    }
+
+    @Test
+    @DisplayName("Промах, игра не завершилась")
+    void failedGuessGameOver() {
+        GuessResult failedGuess = new GuessResult.FailedGuess(new char[] {'*', '*', '*', '*'}, 2, 5);
+        assertNull(failedGuess.gameOver());
+    }
+
+    @Test
     @DisplayName("Попадание")
     void successfulGuessMessage() {
         GuessResult successfulGuess = new GuessResult.SuccessfulGuess(new char[] {'h', 'i'});

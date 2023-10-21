@@ -30,11 +30,8 @@ class ConsoleHangman {
 
             printState(result);
 
-            if (result instanceof GuessResult.Defeat) {
-                LOGGER.info("You lost!");
-                break;
-            } else if (result instanceof GuessResult.Win) {
-                LOGGER.info("You won!");
+            if (result.gameOver() != null) {
+                LOGGER.info(result.gameOver());
                 break;
             }
         }
