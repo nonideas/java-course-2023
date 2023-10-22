@@ -1,21 +1,15 @@
 package edu.hw2.task2;
 
 class Rectangle {
-    private int width;
-    private int height;
+    protected int width;
+    protected int height;
 
     Rectangle setWidth(int width) {
-        if (width <= 0) {
-            throw new IllegalArgumentException("Width must be positive");
-        }
         this.width = width;
         return this;
     }
 
-    final Rectangle setHeight(int height) {
-        if (height <= 0) {
-            throw new IllegalArgumentException("Height must be positive");
-        }
+    Rectangle setHeight(int height) {
         this.height = height;
         return this;
     }

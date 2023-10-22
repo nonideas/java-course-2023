@@ -9,27 +9,35 @@ public final class PopularCommandExecutor {
         this.maxAttempts = maxAttempts;
     }
 
-    public void updatePackages() {
-        tryExecute("apt update && apt upgrade -y");
+    public void updatePackages() throws ConnectionException {
+        try {
+            tryExecute("apt update && apt update -y");
+        } catch (ConnectionException e) {
+            throw new ConnectionException("", e);
+        }
     }
 
-    public void installPackages() {
-        tryExecute("apt install && apt install -y");
+    public void installPackages() throws ConnectionException {
+        try {
+            tryExecute("apt install && apt install -y");
+        } catch (ConnectionException e) {
+            throw new ConnectionException("", e);
+        }
     }
 
-    void tryExecute(String command) {
+    void tryExecute(String command) throws ConnectionException {
         int attempts = 0;
+        Exception lastException = null;
         while (attempts < maxAttempts) {
             try (Connection connection = manager.getConnection()) {
                 connection.execute(command);
-                return; // Command executed successfully, exit the loop
+                return;
             } catch (Exception e) {
-                // Handle the exception if needed
+                lastException = e;
                 attempts++;
             }
         }
-        throw new ConnectionException(new RuntimeException(
-            "Failed to execute command after " + maxAttempts + " attempts"));
+        throw new ConnectionException("Failed to execute command after " + maxAttempts + " attempts", lastException);
     }
 }
 

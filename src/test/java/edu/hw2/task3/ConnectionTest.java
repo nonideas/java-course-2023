@@ -8,7 +8,7 @@ public class ConnectionTest {
 
     @Test
     @DisplayName("StableConnection выполняется без ошибок")
-    void stableConnectionShouldExecuteCommand() {
+    void stableConnectionShouldExecuteCommand() throws ConnectionException {
         Connection connection = new StableConnection();
         connection.execute("ls");
         // No exception should be thrown
@@ -40,7 +40,7 @@ public class ConnectionTest {
     }
 
     @Test
-    @DisplayName("Передаю невалидную высоту")
+    @DisplayName("Попытка выполнить команду с 0 максимальными попытками")
     void tryExecuteShouldRetryFor0MaxAttempts() {
         PopularCommandExecutor executor = new PopularCommandExecutor(new FaultyConnectionManager(), 0);
         assertThrows(ConnectionException.class, () -> executor.tryExecute("ls"));

@@ -2,9 +2,18 @@ package edu.hw2.task2;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class SquareRectTest {
+    private static double isLsp(Rectangle rectangle) {
+        return rectangle.setHeight(10).setWidth(20).area();
+    }
+
+    @Test
+    @DisplayName("Площадь прямоугольника в функции")
+    void testSquareRect() {
+        assertEquals(200, isLsp(new Square()));
+    }
 
     @Test
     @DisplayName("Площадь прямоугольника")
@@ -24,7 +33,7 @@ public class SquareRectTest {
     @Test
     @DisplayName("Длина и высота квадрата")
     void testSquareWidthAndHeight() {
-        Square square = new Square().setWidth(10);
+        Rectangle square = new Square().setWidth(10);
         assertEquals(10, square.getWidth());
         assertEquals(10, square.getHeight());
     }
@@ -33,30 +42,10 @@ public class SquareRectTest {
     @DisplayName("Нельзя использовать setHeight в Square")
     void testChainedSquare() {
         Rectangle rect = new Square().setWidth(10).setHeight(5);
-        Square square = new Square().setWidth(10);
+        Rectangle square = new Square().setWidth(10);
 
         assertEquals(50.0, rect.area());
         assertEquals(100.0, square.area());
-    }
-
-    @Test
-    @DisplayName("Передаю невалидную ширину")
-    void testInvalidWidth() {
-        IllegalArgumentException exception = org.junit.jupiter.api.Assertions.assertThrows(
-            IllegalArgumentException.class,
-            () -> new Rectangle().setWidth(-1)
-        );
-        assertEquals("Width must be positive", exception.getMessage());
-    }
-
-    @Test
-    @DisplayName("Передаю невалидную высоту")
-    void testInvalidHeight() {
-        IllegalArgumentException exception = org.junit.jupiter.api.Assertions.assertThrows(
-            IllegalArgumentException.class,
-            () -> new Rectangle().setHeight(-1)
-        );
-        assertEquals("Height must be positive", exception.getMessage());
     }
 }
 
