@@ -13,7 +13,7 @@ public final class PopularCommandExecutor {
         try {
             tryExecute("apt update && apt update -y");
         } catch (ConnectionException e) {
-            throw new ConnectionException("", e);
+            throw new ConnectionException(e);
         }
     }
 
@@ -21,7 +21,7 @@ public final class PopularCommandExecutor {
         try {
             tryExecute("apt install && apt install -y");
         } catch (ConnectionException e) {
-            throw new ConnectionException("", e);
+            throw new ConnectionException(e);
         }
     }
 
