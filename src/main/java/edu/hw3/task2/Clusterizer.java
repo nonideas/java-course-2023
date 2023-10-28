@@ -20,7 +20,7 @@ public class Clusterizer {
                 stack.push(ch);
             } else if (ch == ')') {
                 if (stack.isEmpty()) {
-                    return new ArrayList<>();
+                    throw new IllegalArgumentException();
                 }
                 stack.pop();
                 currentCluster.append(ch);

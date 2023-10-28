@@ -1,12 +1,13 @@
 package edu.hw3.task5;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SortContacts {
     private SortContacts() {
     }
 
-    public static ArrayList<Contact> sort(ArrayList<String> contactsStr, String order) {
+    public static List<Contact> sort(ArrayList<String> contactsStr, String order) {
         if (contactsStr == null || contactsStr.isEmpty()) {
             return new ArrayList<>();
         }

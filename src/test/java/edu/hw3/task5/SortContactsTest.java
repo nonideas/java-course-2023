@@ -1,6 +1,7 @@
 package edu.hw3.task5;
 
 import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,7 +20,7 @@ public class SortContactsTest {
         contacts.add(new Contact("David", "Hume"));
         contacts.add(new Contact("John", "Locke"));
 
-        ArrayList<Contact> sorted = SortContacts.sort(input, "ASC");
+        List<Contact> sorted = SortContacts.sort(input, "ASC");
         assertEquals(contacts, sorted);
     }
 
@@ -35,7 +36,7 @@ public class SortContactsTest {
         contacts.add(new Contact("Leonhard", "Euler"));
         contacts.add(new Contact("Paul", "Erdos"));
 
-        ArrayList<Contact> sorted = SortContacts.sort(input, "DESC");
+        List<Contact> sorted = SortContacts.sort(input, "DESC");
         assertEquals(contacts, sorted);
     }
 
@@ -51,7 +52,7 @@ public class SortContactsTest {
         contacts.add(new Contact("C"));
         contacts.add(new Contact("B", "D"));
 
-        ArrayList<Contact> sorted = SortContacts.sort(input, "ASC");
+        List<Contact> sorted = SortContacts.sort(input, "ASC");
         assertEquals(contacts, sorted);
     }
 
@@ -59,7 +60,7 @@ public class SortContactsTest {
     void testNonStrings() {
         ArrayList<String> input = new ArrayList<>();
         ArrayList<Contact> contacts = new ArrayList<>();
-        ArrayList<Contact> sorted = SortContacts.sort(input, "ASC");
+        List<Contact> sorted = SortContacts.sort(input, "ASC");
         assertEquals(contacts, sorted);
     }
 
@@ -67,7 +68,7 @@ public class SortContactsTest {
     void testNullStrings() {
         ArrayList<String> input = null;
         ArrayList<Contact> contacts = new ArrayList<>();
-        ArrayList<Contact> sorted = SortContacts.sort(input, "ASC");
+        List<Contact> sorted = SortContacts.sort(input, "ASC");
         assertEquals(contacts, sorted);
     }
 }

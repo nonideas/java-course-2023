@@ -25,8 +25,7 @@ public class ClusterizerTest {
     @DisplayName("неправильный порядок")
     void reversScrapes() {
         String exampleString = ")(";
-        String clasterizedString = Clusterizer.clusterize(exampleString).toString();
-        Assertions.assertEquals("[]", clasterizedString);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Clusterizer.clusterize(exampleString).toString());
     }
 
     @Test
