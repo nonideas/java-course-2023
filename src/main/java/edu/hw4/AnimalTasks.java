@@ -1,18 +1,18 @@
 package edu.hw4;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
-import java.util.TreeSet;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class AnimalTasks {
+    private AnimalTasks() {
+    }
+
     // Отсортировать животных по росту от самого маленького к самому большому -> List<Animal>
     public static List<Animal> task1(List<Animal> animals) {
         return animals.stream()
@@ -147,4 +147,30 @@ public class AnimalTasks {
 
     // Животные, в записях о которых есть ошибки: вернуть имя и список ошибок -> Map<String, Set<ValidationError>>.
     //Класс ValidationError и набор потенциальных проверок нужно придумать самостоятельно.
+    public static Map<String, Set<ValidationError>> task19(List<Animal> animals) {
+        return animals.stream()
+            .collect(Collectors.toMap(Animal::name, ValidationError::validateAnimal))
+            .entrySet().stream()
+            .filter(entry -> !entry.getValue().isEmpty())
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
+    // Сделать результат предыдущего задания более читабельным:
+    // вернуть имя и названия полей с ошибками, объединенные в строку -> Map<String, String>
+    public static Map<String, String> task20(List<Animal> animals) {
+        return animals.stream()
+            .collect(Collectors.toMap(
+                Animal::name,
+                animal -> {
+                    Set<ValidationError> errors = ValidationError.validateAnimal(animal);
+                    StringBuilder errorsBuilder = new StringBuilder();
+                    for (ValidationError error : errors) {
+                        errorsBuilder.append(error.message()).append("; ");
+                    }
+                    return errorsBuilder.toString();
+                }
+            )).entrySet().stream()
+            .filter(entry -> !entry.getValue().isEmpty())
+            .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
 }
