@@ -7,13 +7,13 @@ public class SortContacts {
     private SortContacts() {
     }
 
-    public static List<Contact> sort(ArrayList<String> contactsStr, String order) {
+    public static List<Contact> sort(List<String> contactsStr, String order) {
         if (contactsStr == null || contactsStr.isEmpty()) {
             return new ArrayList<>();
         }
         boolean isDescending = order.equals("DESC");
 
-        ArrayList<Contact> contacts = parseContacts(contactsStr);
+        List<Contact> contacts = parseContacts(contactsStr);
 
         contacts.sort((contact1, contact2) -> {
             String comp1 = contact1.surname() != null ? contact1.surname() : contact1.name();
@@ -25,8 +25,8 @@ public class SortContacts {
         return contacts;
     }
 
-    private static ArrayList<Contact> parseContacts(ArrayList<String> contactsStr) {
-        ArrayList<Contact> contacts = new ArrayList<>();
+    private static List<Contact> parseContacts(List<String> contactsStr) {
+        List<Contact> contacts = new ArrayList<>();
         for (String contactStr : contactsStr) {
             String[] tmpFullName = contactStr.split(" ");
             if (tmpFullName.length == 1) {
