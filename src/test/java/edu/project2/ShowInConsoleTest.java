@@ -13,7 +13,7 @@ import java.util.List;
 public class ShowInConsoleTest {
     @Test
     void test() {
-        String[][] mazeWithoutPath = new String[][] {
+        String[][] mazeArray = new String[][] {
             {"⬜", "⬜", "⬜", "⬜", "⬜", "⬜", "⬜"},
             {"⬜", "⬛", "⬜", "⬛", "⬛", "⬛", "⬜"},
             {"⬜", "⬛", "⬜", "⬜", "⬜", "⬛", "⬜"},
@@ -22,7 +22,7 @@ public class ShowInConsoleTest {
             {"⬜", "⬛", "⬜", "⬛", "⬛", "⬛", "⬜"},
             {"⬜", "⬜", "⬜", "⬜", "⬜", "⬜", "⬜"}
         };
-        Maze m = new Maze(mazeWithoutPath);
+        Maze m = new Maze(mazeArray);
         Solver sd = new SolverDFS();
         List<Coordinate> p1 = sd.solve(m, new Coordinate(1, 1), new Coordinate(3, 5));
         Render r = new RenderMaze();
