@@ -38,6 +38,7 @@ public class FileClonerTest {
 
 
         Files.deleteIfExists(originalFilePath);
+        Files.deleteIfExists(firstClonedFilePath);
         Files.deleteIfExists(secondClonedFilePath);
 
         Files.createFile(originalFilePath);
