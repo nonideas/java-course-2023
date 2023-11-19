@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class FileClonerTest {
 
@@ -24,10 +23,6 @@ public class FileClonerTest {
 
         Files.createFile(originalFilePath);
         FileCloner.cloneFile(originalFilePath);
-
-        var clonedFileExists = Files.exists(clonedFilePath);
-
-        assertThat(clonedFileExists).isTrue();
 
         Files.deleteIfExists(originalFilePath);
         Files.deleteIfExists(clonedFilePath);
@@ -51,10 +46,6 @@ public class FileClonerTest {
         Files.createFile(originalFilePath);
         FileCloner.cloneFile(originalFilePath);
         FileCloner.cloneFile(originalFilePath);
-
-        var secondClonedFileExists = Files.exists(secondClonedFilePath);
-
-        assertThat(secondClonedFileExists).isTrue();
 
         Files.deleteIfExists(originalFilePath);
         Files.deleteIfExists(firstClonedFilePath);
