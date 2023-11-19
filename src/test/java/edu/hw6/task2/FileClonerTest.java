@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 public class FileClonerTest {
 
-    private static final String PARENT_PATH = "./src/test/java/edu/hw6/Task2";
+    private static final String PARENT_PATH = "./src/test/java/edu/hw6/task2";
 
     @Test
     void firstCopy() throws IOException {
