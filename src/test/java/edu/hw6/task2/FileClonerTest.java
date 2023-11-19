@@ -23,9 +23,6 @@ public class FileClonerTest {
 
         Files.createFile(originalFilePath);
         FileCloner.cloneFile(originalFilePath);
-
-        Files.deleteIfExists(originalFilePath);
-        Files.deleteIfExists(clonedFilePath);
     }
 
     @Test
@@ -46,10 +43,6 @@ public class FileClonerTest {
         Files.createFile(originalFilePath);
         FileCloner.cloneFile(originalFilePath);
         FileCloner.cloneFile(originalFilePath);
-
-        Files.deleteIfExists(originalFilePath);
-        Files.deleteIfExists(firstClonedFilePath);
-        Files.deleteIfExists(secondClonedFilePath);
     }
 
 }

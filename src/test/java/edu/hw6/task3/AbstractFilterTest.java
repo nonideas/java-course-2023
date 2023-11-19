@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.assertj.core.api.Assertions;
 
 public class AbstractFilterTest {
-    private static final Path TEST_FILES_PATH = Paths.get("./src/test/java/edu/hw6/Task3/testFiles");
+    private static final Path TEST_FILES_PATH = Paths.get("./src/test/java/edu/hw6/Task3/testFiles/");
 
     @Test
     void testFilters() throws IOException {
