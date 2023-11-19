@@ -1,0 +1,16 @@
+Port 80: HTTP (HyperText Transfer Protocol)
+Port 21: FTP (File Transfer Protocol)
+Port 25: SMTP (Simple Mail Transfer Protocol)
+Port 22: SSH (Secure Shell)
+Port 443: HTTPS (HyperText Transfer Protocol Secure)
+Port 53: DNS (Domain Name System)
+Port 3306: MySQL Database
+Port 5432: PostgreSQL Database
+Port 3389: Remote Desktop Protocol (RDP)
+Port 27017: MongoDB Database
+Port 1521: Oracle Database
+Port 49152: Windows RPC (Remote Procedure Call)
+Port 5353: mDNS (Multicast Domain Name System)
+Port 5672: AMQP (Advanced Message Queuing Protocol)
+Port 5355: LLMNR (Link-Local Multicast Name Resolution)
+Port 49153: Windows RPC (Remote Procedure Call)
