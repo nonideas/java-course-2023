@@ -1,22 +1,25 @@
 package edu.project3.logWorkers;
 
 import edu.project3.Table;
-
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+@SuppressWarnings("MultipleStringLiterals")
 public class LogAnalyser {
+    private LogAnalyser() {
+    }
 
-    public int getRequestsAmount(Table logs) {
+    public static int getRequestsAmount(Table logs) {
         return logs.getSize();
     }
 
-    public Table getTheMostPopularResources(Table logs, int amount, String request) {
+    public static Table getTheMostPopularResources(Table logs, int amount, String request) {
         List<Map<String, String>> sortedLogs = logs.getTableRows().stream()
             .filter(row -> row.get("request_type") != null && row.get("request_type").equals(request))
             .map(row -> Map.of("resource", row.get("request"), "value", "1"))
@@ -30,7 +33,7 @@ public class LogAnalyser {
         return new Table(sortedLogs);
     }
 
-    public Table getTheMostPopularStatuses(Table logs, int amount) {
+    public static Table getTheMostPopularStatuses(Table logs, int amount) {
         List<Map<String, String>> sortedLogs = logs.getTableRows().stream()
             .filter(row -> row.get("status") != null)
             .map(row -> Map.of("status", row.get("status"), "responses", "1"))
@@ -44,7 +47,7 @@ public class LogAnalyser {
         return new Table(sortedLogs);
     }
 
-    public double getAverageResponseSize(Table logs) {
+    public static double getAverageResponseSize(Table logs) {
         List<Map<String, String>> validRows = logs.getTableRows().stream()
             .filter(row -> row.get("body_bytes_sent") != null)
             .toList();
@@ -60,10 +63,13 @@ public class LogAnalyser {
         return totalSize / validRows.size();
     }
 
-    public Table getTheMostHighLoadedDays(Table logs, int amount) {
+    public static Table getTheMostHighLoadedDays(Table logs, int amount) {
         List<Map<String, String>> sortedLogs = logs.getTableRows().stream()
             .filter(row -> row.get("time_local") != null)
-            .map(row -> LocalDateTime.parse(row.get("time_local"), DateTimeFormatter.ofPattern("dd/MMM/yyyy:HH:mm:ss Z")).toLocalDate())
+            .map(row -> LocalDateTime.parse(
+                row.get("time_local"),
+                DateTimeFormatter.ofPattern("dd/MMM/yyyy:HH:mm:ss Z", Locale.ENGLISH)
+            ).toLocalDate())
             .collect(Collectors.groupingBy(date -> date, Collectors.counting()))
             .entrySet().stream()
             .sorted(Map.Entry.<LocalDate, Long>comparingByValue().reversed())
@@ -74,7 +80,7 @@ public class LogAnalyser {
         return new Table(sortedLogs);
     }
 
-    public Table getTheMostActiveUsers(Table logs, int amount) {
+    public static Table getTheMostActiveUsers(Table logs, int amount) {
         List<Map<String, String>> sortedLogs = logs.getTableRows().stream()
             .filter(row -> row.get("remote_addr") != null)
             .map(row -> row.get("remote_addr").equals("localhost") ? "127.0.0.1" : row.get("remote_addr"))
@@ -88,13 +94,17 @@ public class LogAnalyser {
         return new Table(sortedLogs);
     }
 
-    public Table getDateConstrainedLogs(Table logs, LocalDate from, LocalDate to) {
+    public static Table getDateConstrainedLogs(Table logs, LocalDate from, LocalDate to) {
         List<Map<String, String>> constrainedLogs = new ArrayList<>();
 
         for (Map<String, String> row : logs.getTableRows()) {
             if (row.get("time_local") != null) {
-                LocalDate logDate = LocalDateTime.parse(row.get("time_local"), DateTimeFormatter.ofPattern("dd/MMM/yyyy:HH:mm:ss Z"))
-                    .toLocalDate();
+                LocalDate logDate =
+                    LocalDateTime.parse(
+                            row.get("time_local"),
+                            DateTimeFormatter.ofPattern("dd/MMM/yyyy:HH:mm:ss Z", Locale.ENGLISH)
+                        )
+                        .toLocalDate();
 
                 if ((from == null || !logDate.isBefore(from)) && (to == null || !logDate.isAfter(to))) {
                     constrainedLogs.add(row);

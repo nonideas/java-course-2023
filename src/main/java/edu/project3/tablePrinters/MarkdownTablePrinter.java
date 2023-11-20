@@ -1,9 +1,9 @@
 package edu.project3.tablePrinters;
 
 import edu.project3.Table;
-import org.apache.logging.log4j.LogManager;
-
 import java.util.Map;
+import java.util.Set;
+import org.apache.logging.log4j.LogManager;
 
 public class MarkdownTablePrinter extends TablePrinter {
 
@@ -21,13 +21,13 @@ public class MarkdownTablePrinter extends TablePrinter {
     }
 
     private void printColumnNames(Table table) {
-        Map<String, Integer> columnLengths = table.getAllColumnLengths();
-        LOGGER.info(buildColumnString(table.getColumns(), columnLengths));
+        Set<String> columnLengths = table.getAllColumnLengths();
+        LOGGER.info(buildColumnString(columnLengths));
     }
 
     private void printHeadSeparator(Table table) {
-        Map<String, Integer> columnLengths = table.getAllColumnLengths();
-        LOGGER.info(buildSeparator(columnLengths.keySet(), columnLengths));
+        Set<String> columnLengths = table.getAllColumnLengths();
+        LOGGER.info(buildSeparator(columnLengths));
     }
 
     private void printTableItems(Table table, int amount) {
@@ -37,12 +37,12 @@ public class MarkdownTablePrinter extends TablePrinter {
         }
     }
 
-    private String buildSeparator(Iterable<String> columns, Map<String, Integer> columnLengths) {
+    private String buildSeparator(Set<String> columns) {
         StringBuilder result = new StringBuilder("|");
 
         for (String column : columns) {
-            int columnLen = columnLengths.get(column);
-            result.append(":-").append("-".repeat(columnLen - 2)).append("-:").append(":|");
+            int columnLen = column.length();
+            result.append(":-").append("-".repeat(columnLen - 1)).append(":|");
         }
 
         return result.toString();
