@@ -12,6 +12,7 @@ public class MonteCarloAsync extends MonteCarlo {
     }
 
     @Override
+    @SuppressWarnings("MagicNumber")
     double calculatePi(int totalCount) {
         List<Thread> threads = new ArrayList<>();
         AtomicInteger circleCount = new AtomicInteger();
@@ -34,7 +35,6 @@ public class MonteCarloAsync extends MonteCarlo {
                 }
             }
         );
-
         return 4 * ((double) circleCount.get() / totalCount);
     }
 }
