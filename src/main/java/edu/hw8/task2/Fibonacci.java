@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 
 public class Fibonacci {
     private static final Logger LOGGER = LogManager.getLogger();
+
     private Fibonacci() {
     }
 
